@@ -116,7 +116,33 @@ console.log("Total Poin:", totalPoin);
 // 3. Cetak hasil tierMember dan benefit ke Console.
 // 4. Tampilkan ringkasan hasil member (nama, total poin, tier, benefit) via dialog alert().
 
+let tierMember = "";
+let benefit = "";
 
+if (totalPoin >= 100) {
+    tierMember = "Platinum";
+    benefit = "Diskon 20% + Gratis 1 Minuman Signature";
+} else if (totalPoin >= 70) {
+    tierMember = "Gold";
+    benefit = "Diskon 10% di setiap transaksi";
+} else if (totalPoin >= 40) {
+    tierMember = "Silver";
+    benefit = "Diskon 5% untuk menu minuman";
+} else {
+    tierMember = "Bronze";
+    benefit = "Member Reguler (kumpulkan poin untuk naik tier)";
+}
+
+console.log("Tier Member:", tierMember);
+console.log("Benefit:", benefit);
+
+alert(
+    "=== RINGKASAN MEMBER ===\n" +
+    "Nama: " + namaPelanggan + "\n" +
+    "Total Poin: " + totalPoin + "\n" +
+    "Tier: " + tierMember + "\n" +
+    "Benefit: " + benefit
+);
 
 
 // ============================================================
@@ -127,14 +153,27 @@ console.log("Total Poin:", totalPoin);
 // Buat fungsi "hitungTotalPoin(p1, p2, p3)" yang menerima 3 parameter nilai poin,
 // menjumlahkannya, dan mengembalikan (return) nilai total penjumlahannya.
 
-
+function hitungTotalPoin(p1, p2, p3) {
+    let total = p1 + p2 + p3;
+    return total;
+}
 
 
 // TODO 5B:
 // Buat fungsi "tentukanTierMember(poin)" yang menerima 1 parameter nilai poin,
 // dan mengembalikan (return) string nama tier beserta keterangannya.
 
-
+function tentukanTierMember(poin) {
+    if (poin >= 100) {
+        return "Platinum - Diskon 20% + Gratis 1 Minuman Signature";
+    } else if (poin >= 70) {
+        return "Gold - Diskon 10% di setiap transaksi";
+    } else if (poin >= 40) {
+        return "Silver - Diskon 5% untuk menu minuman";
+    } else {
+        return "Bronze - Member Reguler (kumpulkan poin untuk naik tier)";
+    }
+}
 
 
 // TODO 5C:
@@ -143,7 +182,22 @@ console.log("Total Poin:", totalPoin);
 // 2. Hitung total poin dan tentukan tier untuk simulasi Pelanggan C (misal poin: 15, 10, 5).
 // 3. Cetak data Pelanggan B dan C ke tab Console.
 
+// Pelanggan B
+let totalPoinB = hitungTotalPoin(35, 25, 20);
+let tierB = tentukanTierMember(totalPoinB);
 
+// Pelanggan B
+console.log("=== PELANGGAN B ===");
+console.log("Total Poin:", totalPoinB);
+console.log("Tier:", tierB);
+
+// Pelanggan C
+let totalPoinC = hitungTotalPoin(15, 10, 5);
+let tierC = tentukanTierMember(totalPoinC);
+
+console.log("=== PELANGGAN C ===");
+console.log("Total Poin:", totalPoinC);
+console.log("Tier:", tierC);
 
 
 // ============================================================
